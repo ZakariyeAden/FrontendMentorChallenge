@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import styled from "styled-components";
+
 
 const GridTemplateCol = styled.div`
   padding: 8rem 0;
@@ -23,23 +24,27 @@ const FlexDirection = styled.div`
   flex-direction: row;
   gap: 1rem;
 `;
+
 function ProductCard(_props) {
+  const [toggle, setToggle] = useState("1");
   return (
-    <div>
+    <>
         <GridTemplateCol>
           <div>
             <ImgFluid src={_props.ImageUrl}/>
             <FlexDirection>
-              <SmallImgFluid src={_props.ImageSmUrl} />
-              <SmallImgFluid src={_props.ImageSmUrl} />
-              <SmallImgFluid src={_props.ImageSmUrl} />
-              <SmallImgFluid src={_props.ImageSmUrl} />
+              <SmallImgFluid src={_props.smallImg} key={_props.key}/>
+              <SmallImgFluid src={_props.smallImg} />
+              <SmallImgFluid src={_props.smallImg} />
+              <SmallImgFluid src={_props.smallImg} />
             </FlexDirection>
           </div>
-          <div>Texbox</div>
+          <div>
+            <p>text</p>
+          </div>
         </GridTemplateCol>
-    </div>
-  )
+    </>
+  );
 }
 
 export default ProductCard

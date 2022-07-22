@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProductCard from "./ProductCard";
+
 import Image1 from "../Assets/image-product-1.jpg";
 import Image2 from "../Assets/image-product-2.jpg";
 import Image3 from "../Assets/image-product-3.jpg";
@@ -8,6 +8,9 @@ import thumbNail1 from "../Assets/image-product-1-thumbnail.jpg";
 import thumbNail2 from "../Assets/image-product-2-thumbnail.jpg";
 import thumbNail3 from "../Assets/image-product-3-thumbnail.jpg";
 import thumbNail4 from "../Assets/image-product-4-thumbnail.jpg";
+
+import ProductCard from "./ProductCard";
+
 
 const data = [
   {
@@ -36,15 +39,19 @@ const data = [
   },
 ];
 
- function Product(_props) {
-    // {data.map(({ mainImg,smallImg }) => {
-      return (
-        <section>
-      <ProductCard ImageUrl={Image1} ImageSmUrl={thumbNail1}/>
+
+function Product() {
+  return(
+    <>
+  {data.map(({ mainImg,smallImg,key }) => {
+  return (
+    <section key={key}>
+      <ProductCard ImageUrl={mainImg} smallImg={smallImg} />
     </section>
   );
-// })};
+  })};
+  </>
+  );
 }
-
 
 export default Product;
